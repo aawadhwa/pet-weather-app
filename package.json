@@ -1,0 +1,28 @@
+{
+  "name": "pet-weather",
+  "version": "1.0.4",
+  "description": "Pet weather app helps to find out if a pet needs a shelter.",
+  
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "start": "node ./pet-app/app"
+  },
+
+  "author": "Abhishek Wadhwa",
+  
+  "dependencies": {
+    "express": "4.14.0",
+    "body-parser": "^1.17.1",
+    "handlebars": "4.0.6",
+    "js-beautify": "1.6.8",
+    "readdirp": "2.1.0",
+    "request": "^2.81.0",
+    "request-promise": "4.1.1"
+  },
+  "engines": {
+    "node": "4.1.1"
+  }  
+}

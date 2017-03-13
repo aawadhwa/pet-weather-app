@@ -1,0 +1,104 @@
+{{#contentFor 'pageStyles'}}
+{{/contentFor}}
+{{#contentFor 'pageScripts'}}
+<script>
+   var $petsTable = $('#pets-table');
+    var viewButtonElement = $('tbody');
+    
+   function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+   }
+   
+   function showPosition(position) {
+    var latitude = position.coords.latitude;
+    var longitude =   position.coords.longitude; 
+    $('#latitude').val(); 
+    $('#longitude').val(); 
+   }
+    
+    getLocation();
+     
+</script>
+{{/contentFor}}
+<div class="container">
+   <h1 class="text-center">Add your pet</h1>
+    <form action="/pet/add", method="post">
+   <div class="form-group">
+      <div class="col-lg-12">
+         <div class="col-lg-6 text-right">
+            <label for="name">Name</label>
+         </div>
+         <div class="col-lg-4">
+            <input type="text" class="form-control" id="name" name="pet[name]" placeholder="Enter name">
+         </div>
+      </div>
+   </div>
+   <div class="row form-group">
+      <div class="col-lg-12">
+         <div class="col-lg-6 text-right">
+            <label for="type">Type</label>
+         </div>
+         <div class="col-lg-4">
+            <select id="type"  name="pet[type]">
+               <option value="Dog">Dog</option>
+               <option value="Cat">Cat</option>
+            </select>
+         </div>
+      </div>
+   </div>
+   <div class="row form-group">
+      <div class="col-lg-12">
+         <div class="col-lg-6 text-right">
+            <label for="breed">Breed</label>
+         </div>
+         <div class="col-lg-4">
+            <select id="type"  name="pet[breed]">
+               <option value="Akita">Akita</option>
+               <option value="Bearded Collie">Bearded Collie</option>
+               <option value="Boxer">Boxer</option>
+               <option value="Cockapoo">Cockapoo</option>
+            </select>
+         </div>
+      </div>
+   </div>
+   <div class="row form-group">
+      <div class="col-lg-12">
+         <div class="col-lg-6 text-right">
+            <label for="location">Location</label>
+         </div>
+         <div class="col-lg-4">
+            <input type="text" id="location" class="form-control"  name="pet[location]" placeholder="Enter location">
+         </div>
+      </div>
+   </div>
+   <div class="row form-group">
+      <div class="col-lg-12">
+         <div class="col-lg-6 text-right">
+            <label for="name">Latitude</label>
+         </div>
+         <div class="col-lg-4">
+            <input type="text" id="latitude" class="form-control"  name="pet[latitude]" placeholder="Enter latitude">
+         </div>
+      </div>
+   </div>
+   <div class="row form-group">
+      <div class="col-lg-12">
+         <div class="col-lg-6 text-right">
+            <label for="name">Longitude</label>
+         </div>
+         <div class="col-lg-4">
+            <input type="text" id="longitude" class="form-control"  name="pet[longitude]" placeholder="Enter longitude">
+         </div>
+      </div>
+   </div>
+   <div class="row form-group">
+      <div class="col-lg-12 text-center">
+         <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+   </div>
+    </form>
+</div>

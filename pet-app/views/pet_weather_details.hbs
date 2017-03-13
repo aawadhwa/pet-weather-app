@@ -1,0 +1,37 @@
+{{#contentFor 'pageStyles'}}
+{{/contentFor}}
+{{#contentFor 'pageScripts'}}
+<script></script>
+{{/contentFor}}
+<div class="container">
+   <div class="">
+      <div class="col-lg-12">
+         <div class="col-lg-6">
+            <img src="/images/pet-shelter-image.jpg">
+         </div>
+          {{#if isError}}
+               <div class="row">
+                  <h1>Oops..<br> could not get forecast, please try again or check your location!</h1>
+               </div>
+               {{else}}
+               <div class="col-lg-6">
+            <div class="text-center">
+               {{#if isRain}}
+               <div class="row">
+                  <h1>Yup!</h1>
+               </div>
+               <div class="row"><h3>It looks like {{name}} is going to need one<br> in {{location}}</h3></div>
+               {{else}}
+               <div class="row">
+                  <h1>Yuu Hoo!</h1>
+               </div>
+                <div class="row"><h3>It looks like {{name}} is does not need one<br> in {{location}}</h3></div>
+               {{/if}}
+               <div class="row"><a href="/">Lookup a different pet</a></div>
+            </div>
+         </div>
+               {{/if}}
+      </div>
+   </div>
+</div>
+
