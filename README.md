@@ -1,4 +1,4 @@
-# express-hbs
+# Pet-weather-app
 
 Pet weather app allows anyone to check if there pet needs a shelter for the day.
 
