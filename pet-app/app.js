@@ -1,5 +1,4 @@
 'use strict';
-// npm install express express-hbs
 function create(hbs, env) {
     if (env) process.env.NODE_ENV = env;
     var express = require('express');
@@ -26,6 +25,7 @@ function create(hbs, env) {
     }));
     app.set('view engine', 'hbs');
     app.set('views', viewsDir);
+    
     // Register sync helper
     hbs.registerHelper('link', function(text, options) {
         var attrs = [];
@@ -140,8 +140,10 @@ function create(hbs, env) {
 if (require.main === module) {
     var hbs = require('..');
     var app = create(hbs);
-    app.listen(3000);
-    console.log('Express server listening on port 3000');
+    var port = parseInt(process.env.PORT, 10) || 8000;
+    app.set('port', port);
+    app.listen(port);
+    console.log('Express server listening on port:'+port);
 } else {
     exports.create = create;
 }
