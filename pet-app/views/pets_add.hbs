@@ -1,33 +1,13 @@
 {{#contentFor 'pageStyles'}}
 {{/contentFor}}
 {{#contentFor 'pageScripts'}}
-<script>
-   var $petsTable = $('#pets-table');
-    var viewButtonElement = $('tbody');
-    
-   function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-   }
-   
-   function showPosition(position) {
-    var latitude = position.coords.latitude;
-    var longitude =   position.coords.longitude; 
-    $('#latitude').val(); 
-    $('#longitude').val(); 
-   }
-    
-    getLocation();
-     
+<script>     
 </script>
 {{/contentFor}}
 <div class="container">
    <h1 class="text-center">Add your pet</h1>
     <form action="/pet/add", method="post">
-   <div class="form-group">
+   <div class="row form-group">
       <div class="col-lg-12">
          <div class="col-lg-6 text-right">
             <label for="name">Name</label>
@@ -43,7 +23,7 @@
             <label for="type">Type</label>
          </div>
          <div class="col-lg-4">
-            <select id="type"  name="pet[type]">
+            <select id="type" class="form-control" name="pet[type]">
                <option value="Dog">Dog</option>
                <option value="Cat">Cat</option>
             </select>
@@ -56,7 +36,7 @@
             <label for="breed">Breed</label>
          </div>
          <div class="col-lg-4">
-            <select id="type"  name="pet[breed]">
+            <select id="type" class="form-control" name="pet[breed]">
                <option value="Akita">Akita</option>
                <option value="Bearded Collie">Bearded Collie</option>
                <option value="Boxer">Boxer</option>

@@ -7,6 +7,8 @@ function create(hbs, env) {
     var fp = require('path');
     var rp = require('request-promise');
     var bodyParser = require('body-parser');
+    var forcastLookupErrorMessage = "Sorry! could not get forecast"
+    var petShelterApiLookupErrorMessage = "Some error occured while getting pet information"
 
     function relative(path) {
         return fp.join(__dirname, path);
@@ -74,7 +76,8 @@ function create(hbs, env) {
             })
             .catch(function(err) {
                 res.render('pet_weather_details', {
-                    isError: 'ERROR'
+                    isError: 'true',
+                    errorMessage: petShelterApiLookupErrorMessage
                 });
             });
     });
@@ -117,21 +120,22 @@ function create(hbs, env) {
                 res.render('pet_weather_details', {
                     isRain: _isRain(response.currently.precipIntensity),
                     name: pet.name,
-                    location: pet.location,
+                    location: pet.location
                 });
             })
             .catch(function(err) {
                 res.render('pet_weather_details', {
-                    isError: 'true'
+                    isError: 1,
+                    errorMessage: forcastLookupErrorMessage
                 });
             });
     }
 
     function _isRain(intensity) {
         if (intensity > 0) {
-            return 'true';
+            return 1;
         } else {
-            return 'false';
+            return 0;
         }
     }
     return app;

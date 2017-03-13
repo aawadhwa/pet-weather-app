@@ -1,7 +1,9 @@
 {{#contentFor 'pageStyles'}}
 {{/contentFor}}
 {{#contentFor 'pageScripts'}}
-<script></script>
+<script>
+
+</script>
 {{/contentFor}}
 <div class="container">
    <div class="">
@@ -9,9 +11,11 @@
          <div class="col-lg-6">
             <img src="/images/pet-shelter-image.jpg">
          </div>
+          
           {{#if isError}}
                <div class="row">
-                  <h1>Oops..<br> could not get forecast, please try again or check your location!</h1>
+                  <h1>Oops..<br></h1>
+                  <h2>{{errorMessage}}</h2>
                </div>
                {{else}}
                <div class="col-lg-6">
@@ -21,7 +25,7 @@
                   <h1>Yup!</h1>
                </div>
                <div class="row"><h3>It looks like {{name}} is going to need one<br> in {{location}}</h3></div>
-               {{else}}
+                {{else}}
                <div class="row">
                   <h1>Yuu Hoo!</h1>
                </div>
@@ -30,7 +34,7 @@
                <div class="row"><a href="/">Lookup a different pet</a></div>
             </div>
          </div>
-               {{/if}}
+       {{/if}}
       </div>
    </div>
 </div>
