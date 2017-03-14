@@ -4,10 +4,6 @@
 {{/contentFor}}
 {{#contentFor 'pageScripts'}}
 <script>
-   var $petsTable = $('#pets-table');
-    var viewButtonElement = $('tbody');
-
-   
   function createActions(id) {
       return "<a href=/pets/"+id+">View</a>";
 }
@@ -38,22 +34,9 @@
     }
    })}
     
-    viewButtonElement.on('click', '.btn-edit', function () {
-        var id = $(this).data("pet-id");
-        console.log(id);
-    });
-    
     assignToEventsColumns({{{pets}}})
     
-    
-   var pets = {{{pets}}} ;
-   for (var i = 0; i < pets.length; i++){
-    var obj = pets[i];
-    for (var key in obj){
-        var attrName = key;
-        var attrValue = obj[key];
-    }
-   }
+   var pets = {{{pets}}};
    
 </script>
 {{/contentFor}}
