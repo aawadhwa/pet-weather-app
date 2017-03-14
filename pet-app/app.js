@@ -103,7 +103,10 @@ function create(hbs, env) {
                 res.redirect('/');
             })
             .catch(function(err) {
-                // POST failed...
+                res.render('pets_add', {
+                    isError: 1,
+                    errorMessage: 'Pet could not be created.'
+                });
             });
 
     });

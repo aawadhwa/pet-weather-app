@@ -1,84 +1,90 @@
 {{#contentFor 'pageStyles'}}
 {{/contentFor}}
 {{#contentFor 'pageScripts'}}
-<script>     
+<script>    
 </script>
 {{/contentFor}}
 <div class="container">
    <h1 class="text-center">Add your pet</h1>
-    <form action="/pet/add", method="post">
-   <div class="row form-group">
-      <div class="col-lg-12">
-         <div class="col-lg-6 text-right">
-            <label for="name">Name</label>
-         </div>
-         <div class="col-lg-4">
-            <input type="text" class="form-control" id="name" name="pet[name]" placeholder="Enter name">
+   <form action="/pet/add", method="post">
+      {{#if isError}}
+      <div class="row">
+         <h3 class="text-center">{{errorMessage}}</h3>
+      </div>
+      {{else}}
+      {{/if}}
+      <div class="row form-group">
+         <div class="col-lg-12">
+            <div class="col-lg-6 text-right">
+               <label for="name">Name</label>
+            </div>
+            <div class="col-lg-4">
+               <input type="text" class="form-control" id="name" name="pet[name]" placeholder="Enter name" required>
+            </div>
          </div>
       </div>
-   </div>
-   <div class="row form-group">
-      <div class="col-lg-12">
-         <div class="col-lg-6 text-right">
-            <label for="type">Type</label>
-         </div>
-         <div class="col-lg-4">
-            <select id="type" class="form-control" name="pet[type]">
-               <option value="Dog">Dog</option>
-               <option value="Cat">Cat</option>
-            </select>
-         </div>
-      </div>
-   </div>
-   <div class="row form-group">
-      <div class="col-lg-12">
-         <div class="col-lg-6 text-right">
-            <label for="breed">Breed</label>
-         </div>
-         <div class="col-lg-4">
-            <select id="type" class="form-control" name="pet[breed]">
-               <option value="Akita">Akita</option>
-               <option value="Bearded Collie">Bearded Collie</option>
-               <option value="Boxer">Boxer</option>
-               <option value="Cockapoo">Cockapoo</option>
-            </select>
+      <div class="row form-group">
+         <div class="col-lg-12">
+            <div class="col-lg-6 text-right">
+               <label for="type">Type</label>
+            </div>
+            <div class="col-lg-4">
+               <select id="type" class="form-control" name="pet[type]">
+                  <option value="Dog">Dog</option>
+                  <option value="Cat">Cat</option>
+               </select>
+            </div>
          </div>
       </div>
-   </div>
-   <div class="row form-group">
-      <div class="col-lg-12">
-         <div class="col-lg-6 text-right">
-            <label for="location">Location</label>
-         </div>
-         <div class="col-lg-4">
-            <input type="text" id="location" class="form-control"  name="pet[location]" placeholder="Enter location">
-         </div>
-      </div>
-   </div>
-   <div class="row form-group">
-      <div class="col-lg-12">
-         <div class="col-lg-6 text-right">
-            <label for="name">Latitude</label>
-         </div>
-         <div class="col-lg-4">
-            <input type="text" id="latitude" class="form-control"  name="pet[latitude]" placeholder="Enter latitude">
+      <div class="row form-group">
+         <div class="col-lg-12">
+            <div class="col-lg-6 text-right">
+               <label for="breed">Breed</label>
+            </div>
+            <div class="col-lg-4">
+               <select id="type" class="form-control" name="pet[breed]">
+                  <option value="Akita">Akita</option>
+                  <option value="Bearded Collie">Bearded Collie</option>
+                  <option value="Boxer">Boxer</option>
+                  <option value="Cockapoo">Cockapoo</option>
+               </select>
+            </div>
          </div>
       </div>
-   </div>
-   <div class="row form-group">
-      <div class="col-lg-12">
-         <div class="col-lg-6 text-right">
-            <label for="name">Longitude</label>
-         </div>
-         <div class="col-lg-4">
-            <input type="text" id="longitude" class="form-control"  name="pet[longitude]" placeholder="Enter longitude">
+      <div class="row form-group">
+         <div class="col-lg-12">
+            <div class="col-lg-6 text-right">
+               <label for="location">Location</label>
+            </div>
+            <div class="col-lg-4">
+               <input type="text" id="location" class="form-control"  name="pet[location]" placeholder="Enter location" required>
+            </div>
          </div>
       </div>
-   </div>
-   <div class="row form-group">
-      <div class="col-lg-12 text-center">
-         <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="row form-group">
+         <div class="col-lg-12">
+            <div class="col-lg-6 text-right">
+               <label for="name">Latitude</label>
+            </div>
+            <div class="col-lg-4">
+               <input type="text" id="latitude" class="form-control"  name="pet[latitude]" placeholder="Enter latitude" required>
+            </div>
+         </div>
       </div>
-   </div>
-    </form>
+      <div class="row form-group">
+         <div class="col-lg-12">
+            <div class="col-lg-6 text-right">
+               <label for="name">Longitude</label>
+            </div>
+            <div class="col-lg-4">
+               <input type="text" id="longitude" class="form-control"  name="pet[longitude]" placeholder="Enter longitude" required>
+            </div>
+         </div>
+      </div>
+      <div class="row form-group">
+         <div class="col-lg-12 text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+         </div>
+      </div>
+   </form>
 </div>
